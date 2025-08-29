@@ -287,7 +287,27 @@
 - ملاحظات: 
 أرسِلوا أفضل عرض وخيارات السطحة.`;
 
-    function buildWhatsAppUrl(fields) {
+<script>
+  function openWhatsApp(url, source){
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
+    window.open(url, '_blank');
+  }
+
+  ['whatsHero','whatsHeader','whatsBottom','whatsSticky'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const quickUrl = `https://wa.me/966545376792?text=${encodeURIComponent(`السلام عليكم...`)}`;
+      openWhatsApp(quickUrl, id);
+    });
+  });
+
+  const form = document.getElementById('leadForm');
+  if (form) form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    const url = (function(fields){
       const q = [
         `السلام عليكم، تفاصيل سيارتي:`,
         fields.city ? `- المدينة: ${fields.city}` : null,
@@ -297,8 +317,11 @@
         fields.notes ? `- ملاحظات: ${fields.notes}` : null,
         `أرسلوا أعلى عرض والسطحة المتاحة.`
       ].filter(Boolean).join('\n');
-      return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(q)}`;
-    }
+      return `https://wa.me/966545376792?text=${encodeURIComponent(q)}`;
+    })(data);
+    openWhatsApp(url, 'form');
+  });
+</script>
 
     function openWhatsApp(url){
       if (typeof gtag === 'function') {
@@ -349,3 +372,4 @@
   </script>
 </body>
 </html>
+
