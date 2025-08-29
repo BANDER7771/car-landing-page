@@ -14,11 +14,9 @@
   <meta property="og:locale" content="ar_SA" />
   <meta name="theme-color" content="#25D366" />
 
-  <!-- GTM helper so your gtag('event', ...) pushes to dataLayer -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-  </script>
+  <!-- (اختياري) جهّز dataLayer قبل تحميل GTM -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+
   <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -30,91 +28,68 @@
   <!-- End Google Tag Manager -->
 
   <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #11161d;
-      --muted: #a8b3c0;
-      --text: #e8edf2;
-      --primary: #25D366; /* واتساب */
-      --accent: #3ea6ff;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, 92%); margin: 0 auto; }
-    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-    .brand .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(145deg, var(--primary), #1ea955); box-shadow: var(--shadow); display: grid; place-items: center; }
-    .brand .logo svg { width: 22px; height: 22px; fill: #fff; }
-    .tag { font-size: 14px; color: var(--muted); }
-
-    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; padding: 28px 0 8px; }
-    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-    .hero h1 { font-size: clamp(24px, 3.4vw, 42px); line-height: 1.25; margin: 0 0 10px; }
-    .hero p.lead { margin: 0 0 16px; color: var(--muted); font-size: 18px; }
-    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .hero .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); font-weight: 700; cursor: pointer; transition: .2s ease; }
-    .btn-primary { background: var(--primary); color: #0b0f14; border-color: transparent; }
-    .btn-primary:hover { filter: brightness(.95); transform: translateY(-1px); }
-    .btn-ghost { background: transparent; color: var(--text); }
-
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .badge { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); color: var(--muted); padding: 8px 12px; border-radius: 999px; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; }
-
-    .form-wrap { padding: 18px; }
-    form { display: grid; gap: 10px; }
-    label { font-size: 13px; color: var(--muted); }
-    input, select, textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: #0e1319; color: var(--text); outline: none; }
-    textarea { min-height: 92px; resize: vertical; }
-    .form-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-
-    .section { padding: 28px 0; }
-    .section h2 { font-size: 22px; margin: 0 0 14px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
-
-    .item { padding: 16px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)); }
-    .item h3 { margin: 0 0 6px; font-size: 18px; }
-    .item p { margin: 0; color: var(--muted); font-size: 15px; }
-
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
-    .step { padding: 16px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); }
-    .step .num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #000; display: grid; place-items: center; font-weight: 700; margin-bottom: 8px; }
-    .step p { margin: 6px 0 0; color: var(--muted); }
-
-    .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 900px) { .faq { grid-template-columns: 1fr; } }
-    details { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 12px 14px; }
-    details > summary { cursor: pointer; font-weight: 700; }
-    details[open] { background: rgba(255,255,255,.05); }
-    details p { margin: 10px 0 0; color: var(--muted); }
-
-    footer { padding: 28px 0; color: var(--muted); font-size: 14px; }
-
-    .sticky-whatsapp { position: fixed; inset-inline: 0; bottom: 0; background: rgba(11,15,20,.8); backdrop-filter: blur(8px); border-top: 1px solid rgba(255,255,255,.06); padding: 10px 0; z-index: 50; }
-    .sticky-whatsapp .inner { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .sticky-whatsapp .cta { display: flex; gap: 10px; }
-
-    .muted { color: var(--muted); }
-    .center { text-align: center; }
+    :root{--bg:#0b0f14;--card:#11161d;--muted:#a8b3c0;--text:#e8edf2;--primary:#25D366;--accent:#3ea6ff;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(145deg,var(--primary),#1ea955);box-shadow:var(--shadow);display:grid;place-items:center}
+    .brand .logo svg{width:22px;height:22px;fill:#fff}
+    .tag{font-size:14px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0 8px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .hero h1{font-size:clamp(24px,3.4vw,42px);line-height:1.25;margin:0 0 10px}
+    .hero p.lead{margin:0 0 16px;color:var(--muted);font-size:18px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.08);font-weight:700;cursor:pointer;transition:.2s ease}
+    .btn-primary{background:var(--primary);color:#0b0f14;border-color:transparent}
+    .btn-primary:hover{filter:brightness(.95);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .badge{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--muted);padding:8px 12px;border-radius:999px;font-size:13px;display:inline-flex;align-items:center;gap:8px}
+    .form-wrap{padding:18px}
+    form{display:grid;gap:10px}
+    label{font-size:13px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0e1319;color:var(--text);outline:none}
+    textarea{min-height:92px;resize:vertical}
+    .form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .section{padding:28px 0}
+    .section h2{font-size:22px;margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .item{padding:16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+    .item h3{margin:0 0 6px;font-size:18px}
+    .item p{margin:0;color:var(--muted);font-size:15px}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+    .step{padding:16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .step .num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#000;display:grid;place-items:center;font-weight:700;margin-bottom:8px}
+    .step p{margin:6px 0 0;color:var(--muted)}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:900px){.faq{grid-template-columns:1fr}}
+    details{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:12px 14px}
+    details>summary{cursor:pointer;font-weight:700}
+    details[open]{background:rgba(255,255,255,.05)}
+    details p{margin:10px 0 0;color:var(--muted)}
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+    .sticky-whatsapp{position:fixed;inset-inline:0;bottom:0;background:rgba(11,15,20,.8);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.06);padding:10px 0;z-index:50}
+    .sticky-whatsapp .inner{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .sticky-whatsapp .cta{display:flex;gap:10px}
+    .muted{color:var(--muted)}
+    .center{text-align:center}
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQFXMX2S"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQFXMX2S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <header class="container">
     <div class="brand">
       <div class="logo" aria-hidden="true">
-        <!-- شارة بسيطة -->
         <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-4 9-7 10-3-1-7-5-7-10V6l7-4z"></path></svg>
       </div>
       <div>
@@ -183,7 +158,7 @@
             <textarea id="notes" name="notes" placeholder="مثال: مجمعة في الموقع، تحتاج ونش…"></textarea>
           </div>
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">أرسل الطلب على واتساب</button>
+            <button id="sendWhatsForm" class="btn btn-primary" type="submit">أرسل الطلب على واتساب</button>
             <span class="muted">لن نشارك رقمك — التواصل عبر واتساب فقط</span>
           </div>
         </form>
@@ -194,7 +169,7 @@
       <h2>لماذا نحن؟</h2>
       <div class="grid">
         <div class="item">
-          <h3>أفضل سعر مضمون بالمنافسة</h3>
+          <h3>أفضل سعر مضمون بالمنافسقة</h3>
           <p>نرسل تفاصيل سيارتك إلى شبكة التشاليح دفعة واحدة، وتوصلك العروض، ونختار الأعلى لك.</p>
         </div>
         <div class="item">
@@ -211,48 +186,20 @@
     <section class="section">
       <h2>خطوات العمل</h2>
       <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <strong>ترسل تفاصيل سيارتك</strong>
-          <p>المدينة، النوع، الموديل، السنة، الحالة.</p>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <strong>نعرضها على التشاليح</strong>
-          <p>نبدأ مزاد عروض سريع للوصول لأعلى سعر.</p>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <strong>نرسل لك أعلى عرض</strong>
-          <p>توافق؟ ننطلق في نفس اليوم.</p>
-        </div>
-        <div class="step">
-          <div class="num">4</div>
-          <strong>سطحة مجانية وتوثيق</strong>
-          <p>نقل السيارة والدفع — بكل وضوح.</p>
-        </div>
+        <div class="step"><div class="num">1</div><strong>ترسل تفاصيل سيارتك</strong><p>المدينة، النوع، الموديل، السنة، الحالة.</p></div>
+        <div class="step"><div class="num">2</div><strong>نعرضها على التشاليح</strong><p>نبدأ مزاد عروض سريع للوصول لأعلى سعر.</p></div>
+        <div class="step"><div class="num">3</div><strong>نرسل لك أعلى عرض</strong><p>توافق؟ ننطلق في نفس اليوم.</p></div>
+        <div class="step"><div class="num">4</div><strong>سطحة مجانية وتوثيق</strong><p>نقل السيارة والدفع — بكل وضوح.</p></div>
       </div>
     </section>
 
     <section class="section">
       <h2>الأسئلة الشائعة</h2>
       <div class="faq">
-        <details>
-          <summary>هل تدفعون عمولة؟</summary>
-          <p>لا نأخذ منك أي مبلغ مقدم. العمولة — إن وجدت — تكون مدموجة ضمن العرض ومتفق عليها مسبقًا بشفافية.</p>
-        </details>
-        <details>
-          <summary>أين نطاق الخدمة؟</summary>
-          <p>نبدأ داخل <strong>تبوك</strong> والمناطق القريبة. اطلب عبر النموذج وسنؤكد التغطية حسب موقعك.</p>
-        </details>
-        <details>
-          <summary>من يتحمل تكلفة السطحة؟</summary>
-          <p>نحن نتكفل بسطحة داخل نطاق الخدمة المتاح. خارج النطاق قد تُضاف رسوم بسيطة — نبلغك مسبقًا.</p>
-        </details>
-        <details>
-          <summary>كيف يتم نقل الملكية؟</summary>
-          <p>نرتب إجراءات نقل الملكية حسب الأنظمة (أبشر/المعارض) في مدينتك، مع توثيق كل خطوة عبر واتساب.</p>
-        </details>
+        <details><summary>هل تدفعون عمولة؟</summary><p>لا نأخذ منك أي مبلغ مقدم. العمولة — إن وجدت — تكون مدموجة ضمن العرض ومتفق عليها مسبقًا بشفافية.</p></details>
+        <details><summary>أين نطاق الخدمة؟</summary><p>نبدأ داخل <strong>تبوك</strong> والمناطق القريبة. اطلب عبر النموذج وسنؤكد التغطية حسب موقعك.</p></details>
+        <details><summary>من يتحمل تكلفة السطحة؟</summary><p>نحن نتكفل بسطحة داخل نطاق الخدمة المتاح. خارج النطاق قد تُضاف رسوم بسيطة — نبلغك مسبقًا.</p></details>
+        <details><summary>كيف يتم نقل الملكية؟</summary><p>نرتب إجراءات نقل الملكية حسب الأنظمة (أبشر/المعارض) في مدينتك، مع توثيق كل خطوة عبر واتساب.</p></details>
       </div>
     </section>
 
@@ -277,37 +224,17 @@
   </div>
 
   <script>
-    // ضع رقمك هنا (صيغة دولية بدون +)
+    // رقم الواتساب بصيغة دولية بدون +
     const WA_PHONE = '966545376792';
     const DEFAULT_MSG = `السلام عليكم، عندي سيارة للبيع وأرغب بأعلى سعر:
-- المدينة: 
-- النوع/الموديل: 
-- السنة: 
-- الحالة: 
-- ملاحظات: 
+- المدينة:
+- النوع/الموديل:
+- السنة:
+- الحالة:
+- ملاحظات:
 أرسِلوا أفضل عرض وخيارات السطحة.`;
 
-<script>
-  function openWhatsApp(url, source){
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
-    window.open(url, '_blank');
-  }
-
-  ['whatsHero','whatsHeader','whatsBottom','whatsSticky'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const quickUrl = `https://wa.me/966545376792?text=${encodeURIComponent(`السلام عليكم...`)}`;
-      openWhatsApp(quickUrl, id);
-    });
-  });
-
-  const form = document.getElementById('leadForm');
-  if (form) form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    const url = (function(fields){
+    function buildWhatsAppUrl(fields){
       const q = [
         `السلام عليكم، تفاصيل سيارتي:`,
         fields.city ? `- المدينة: ${fields.city}` : null,
@@ -316,60 +243,67 @@
         fields.ownership ? `- الملكية: ${fields.ownership}` : null,
         fields.notes ? `- ملاحظات: ${fields.notes}` : null,
         `أرسلوا أعلى عرض والسطحة المتاحة.`
-      ].filter(Boolean).join('\n');
-      return `https://wa.me/966545376792?text=${encodeURIComponent(q)}`;
-    })(data);
-    openWhatsApp(url, 'form');
-  });
-</script>
+      ].filter(Boolean).join('\\n');
+      return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(q)}`;
+    }
 
-    function openWhatsApp(url){
-      if (typeof gtag === 'function') {
-        gtag('event', 'whatsapp_click', { 'event_category': 'engagement' });
-      }
+    // حدث قياس + فتح واتساب
+    function openWhatsApp(url, source){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
       window.open(url, '_blank');
     }
 
-    // روابط سريعة بدون نموذج
+    // روابط سريعة
     const quickUrl = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(DEFAULT_MSG)}`;
-    ['whatsHero','whatsHeader','whatsBottom','whatsSticky'].forEach(id => {
+    ['whatsHero','whatsHeader','whatsBottom','whatsSticky'].forEach(id=>{
       const el = document.getElementById(id);
-      if (el) el.addEventListener('click', (e) => { e.preventDefault(); openWhatsApp(quickUrl); });
+      if(!el) return;
+      el.addEventListener('click', (e)=>{
+        e.preventDefault();
+        openWhatsApp(quickUrl, id);
+      });
     });
+
+    // إرسال النموذج
+    const form = document.getElementById('leadForm');
+    if(form){
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        const url = buildWhatsAppUrl(data);
+        openWhatsApp(url, 'form');
+      });
+    }
 
     // نسخ الرقم
     const copyBtn = document.getElementById('copyPhone');
-    if (copyBtn) copyBtn.addEventListener('click', async ()=>{
-      try { await navigator.clipboard.writeText('+'+WA_PHONE); copyBtn.textContent = 'تم نسخ الرقم'; setTimeout(()=> copyBtn.textContent='نسخ رقم الواتساب', 1800); } catch(e) {}
-    });
-
-    // إرسال النموذج إلى واتساب
-    const form = document.getElementById('leadForm');
-    if (form) form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const url = buildWhatsAppUrl(data);
-      openWhatsApp(url);
-    });
+    if(copyBtn){
+      copyBtn.addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText('+'+WA_PHONE);
+          copyBtn.textContent = 'تم نسخ الرقم';
+          setTimeout(()=>copyBtn.textContent='نسخ رقم الواتساب', 1800);
+        }catch(e){}
+      });
+    }
 
     // سنة الفوتر
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- JSON-LD: ينفع لمحركات البحث -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "شراء سيارات",
-    "image": "",
-    "url": "",
-    "telephone": "+966-5-XXXX-XXXX",
-    "areaServed": "SA",
-    "description": "نعرض سيارتك على شبكة التشاليح لنحصل لك أعلى سعر مع سطحة ونقل مجاني وتوثيق كامل عبر واتساب.",
-    "sameAs": []
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"شراء سيارات",
+    "url":"",
+    "telephone":"+966-5-XXXX-XXXX",
+    "areaServed":"SA",
+    "description":"نعرض سيارتك على شبكة التشاليح لنحصل لك أعلى سعر مع سطحة ونقل مجاني وتوثيق كامل عبر واتساب.",
+    "sameAs":[]
   }
   </script>
 </body>
 </html>
-
