@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>شراء سيارات | أفضل سعر من التشاليح + سطحة مجانية</title>
-  <meta name="description" content="نخدمك في شراء السيارات: نعرض سيارتك على جميع التشاليح لنحصل لك أفضل سعر + سطحة ونقل مجاني، وكل شيء موثق عبر واتساب. راسلنا الآن." />
+  <meta name="description" content="نعرِض سيارتك على جميع التشاليح لنجيب لك أفضل سعر + سطحة ونقل مجاني، وكل شيء موثق عبر واتساب. راسلنا الآن." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,17 +14,31 @@
   <meta property="og:locale" content="ar_SA" />
   <meta name="theme-color" content="#25D366" />
 
-  <!-- (اختياري) جهّز dataLayer قبل تحميل GTM -->
+  <!-- جهّز dataLayer قبل أي وسوم -->
   <script>window.dataLayer = window.dataLayer || [];</script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NQFXMX2S');</script>
-<!-- End Google Tag Manager -->
-  
+  <!-- Google Tag Manager (موجود عندك – اتركه كما هو، ولا تُضِف نفس التحويل داخله كي لا يتكرر) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NQFXMX2S');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) – يجمع GA4 + Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3F15T116L0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    /* GA4 */
+    gtag('config', 'G-3F15T116L0');
+
+    /* Google Ads (ضروري للتحويل) */
+    gtag('config', 'AW-17463356469');
+  </script>
+
   <style>
     :root{--bg:#0b0f14;--card:#11161d;--muted:#a8b3c0;--text:#e8edf2;--primary:#25D366;--accent:#3ea6ff;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px}
     *{box-sizing:border-box}
@@ -81,11 +95,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQFXMX2S"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQFXMX2S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header class="container">
     <div class="brand">
       <div class="logo" aria-hidden="true">
@@ -102,7 +116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <main class="container">
     <section class="hero">
       <div>
-        <h1>نعرض سيارتك على <span style="color:var(--accent)">كل التشاليح</span> وراح نجيبلك <span style="color:var(--accent)">أعلى سعر</span> — والسطحة علينا</h1>
+        <h1>نعرض سيارتك على <span style="color:var(--accent)">كل التشاليح</span> ونجيب لك <span style="color:var(--accent)">أعلى سعر</span> — والسطحة علينا</h1>
         <p class="lead">بدون مقابلات، بدون لف ودوران. عرض واضح، نقل مجاني، وتوثيق كامل عبر واتساب.</p>
         <div class="cta">
           <a id="whatsHero" class="btn btn-primary" href="#">راسلنا الآن – رد خلال دقائق</a>
@@ -154,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <label for="notes">ملاحظات (اختياري)</label>
-            <textarea id="notes" name="notes" placeholder="مثال: مجمعة في الموقع، تحتاج ونش…"></textarea>
+            <textarea id="notes" name="notes" placeholder="مثال: مجمّعة في الموقع، تحتاج ونش…"></textarea>
           </div>
           <div class="form-actions">
             <button id="sendWhatsForm" class="btn btn-primary" type="submit">أرسل الطلب على واتساب</button>
@@ -168,7 +182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>لماذا نحن؟</h2>
       <div class="grid">
         <div class="item">
-          <h3>أفضل سعر مضمون بالمنافسقة</h3>
+          <h3>أفضل سعر مضمون بالمنافسة</h3>
           <p>نرسل تفاصيل سيارتك إلى شبكة التشاليح دفعة واحدة، وتوصلك العروض، ونختار الأعلى لك.</p>
         </div>
         <div class="item">
@@ -195,9 +209,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="section">
       <h2>الأسئلة الشائعة</h2>
       <div class="faq">
-        <details><summary>هل تدفعون عمولة؟</summary><p>لا نأخذ منك أي مبلغ مقدم. العمولة — إن وجدت — تكون مدموجة ضمن العرض ومتفق عليها مسبقًا بشفافية.</p></details>
+        <details><summary>هل تدفعون عمولة؟</summary><p>لا نأخذ منك أي مبلغ مقدم. العمولة — إن وجدت — تكون مدموجة ضمن العرض ومتفقًا عليها مسبقًا بشفافية.</p></details>
         <details><summary>أين نطاق الخدمة؟</summary><p>نبدأ داخل <strong>تبوك</strong> والمناطق القريبة. اطلب عبر النموذج وسنؤكد التغطية حسب موقعك.</p></details>
-        <details><summary>من يتحمل تكلفة السطحة؟</summary><p>نحن نتكفل بسطحة داخل نطاق الخدمة المتاح. خارج النطاق قد تُضاف رسوم بسيطة — نبلغك مسبقًا.</p></details>
+        <details><summary>من يتحمل تكلفة السطحة؟</summary><p>نتكفل بالسطحة داخل نطاق الخدمة المتاح. خارج النطاق قد تُضاف رسوم بسيطة — نبلغك مسبقًا.</p></details>
         <details><summary>كيف يتم نقل الملكية؟</summary><p>نرتب إجراءات نقل الملكية حسب الأنظمة (أبشر/المعارض) في مدينتك، مع توثيق كل خطوة عبر واتساب.</p></details>
       </div>
     </section>
@@ -209,13 +223,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <footer class="container">
       <div>© <span id="year"></span> شراء سيارات. جميع الحقوق محفوظة.</div>
-      <div class="muted">سياسة الخصوصية · من نحن · تواصل</div>
+      <div class="muted"><a href="#privacy">سياسة الخصوصية</a> · من نحن · تواصل</div>
     </footer>
+
+    <!-- سياسة خصوصية مختصرة (يكفي لرابط الإعلانات) -->
+    <section id="privacy" class="container section" style="border-top:1px solid rgba(255,255,255,.08)">
+      <h2>سياسة الخصوصية</h2>
+      <p class="muted">نستخدم بياناتك للتواصل وتقييم سيارتك فقط. لا نبيع بياناتك لطرف ثالث. لإلغاء أو تعديل معلوماتك تواصل عبر واتساب.</p>
+    </section>
   </main>
 
   <div class="sticky-whatsapp">
     <div class="container inner">
-      <div class="muted">جاهز تبيع؟ ارسل تفاصيل سيارتك الآن.</div>
+      <div class="muted">جاهز تبيع؟ أرسل تفاصيل سيارتك الآن.</div>
       <div class="cta">
         <a id="whatsSticky" class="btn btn-primary" href="#">فتح واتساب</a>
       </div>
@@ -242,15 +262,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         fields.ownership ? `- الملكية: ${fields.ownership}` : null,
         fields.notes ? `- ملاحظات: ${fields.notes}` : null,
         `أرسلوا أعلى عرض والسطحة المتاحة.`
-      ].filter(Boolean).join('\\n');
+      ].filter(Boolean).join('\n');
       return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(q)}`;
     }
 
-    // حدث قياس + فتح واتساب
+    // إطلاق تحويل Google Ads + فتح واتساب
     function openWhatsApp(url, source){
+      try {
+        /* Conversion: نقرة واتساب */
+        gtag('event','conversion',{'send_to':'AW-17463356469/vRzwCCp7upEbELXYlodB'});
+      } catch(e){}
+      /* حدث عام للداتا لاير (لو حبيت تستخدم GTM لاحقًا) */
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
-      window.open(url, '_blank');
+
+      window.open(url, '_blank', 'noopener');
     }
 
     // روابط سريعة
@@ -298,13 +324,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "@type":"LocalBusiness",
     "name":"شراء سيارات",
     "url":"",
-    "telephone":"+966-5-XXXX-XXXX",
-    "areaServed":"SA",
+    "telephone":"+966-54-537-6792",
+    "areaServed":"Tabuk, SA",
     "description":"نعرض سيارتك على شبكة التشاليح لنحصل لك أعلى سعر مع سطحة ونقل مجاني وتوثيق كامل عبر واتساب.",
     "sameAs":[]
   }
   </script>
 </body>
 </html>
-
 
