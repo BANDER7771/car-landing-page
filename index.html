@@ -14,19 +14,11 @@
   <meta property="og:locale" content="ar_SA" />
   <meta name="theme-color" content="#25D366" />
 
-  <!-- جهّز dataLayer قبل أي وسوم -->
+  <!-- جهّز dataLayer -->
   <script>window.dataLayer = window.dataLayer || [];</script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W8BVHMVT');</script>
-<!-- End Google Tag Manager -->
-  
   <!-- Google tag (gtag.js) – GA4 + Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3F15T116L0"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3F1ST116L0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -35,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* GA4 */
     gtag('config', 'G-3F1ST116L0');
 
-    /* Google Ads (ضروري للتحويل) */
+    /* Google Ads */
     gtag('config', 'AW-17463356469');
   </script>
 
@@ -95,11 +87,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8BVHMVT"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
   <header class="container">
     <div class="brand">
       <div class="logo" aria-hidden="true">
@@ -226,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="muted"><a href="#privacy">سياسة الخصوصية</a> · من نحن · تواصل</div>
     </footer>
 
-    <!-- سياسة خصوصية مختصرة (يكفي لرابط الإعلانات) -->
+    <!-- سياسة خصوصية مختصرة -->
     <section id="privacy" class="container section" style="border-top:1px solid rgba(255,255,255,.08)">
       <h2>سياسة الخصوصية</h2>
       <p class="muted">نستخدم بياناتك للتواصل وتقييم سيارتك فقط. لا نبيع بياناتك لطرف ثالث. لإلغاء أو تعديل معلوماتك تواصل عبر واتساب.</p>
@@ -268,7 +255,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* ================================
        Google Ads Event Snippet (نقر)
-       كما هو مطلوب من Google
        ================================ */
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -277,7 +263,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       };
       gtag('event', 'conversion', {
-        'send_to': 'AW-17463356469/vRzwCCp7upEbELXYlodB', // استبدل فقط إذا غيّرت الـ Label من Google Ads
+        'send_to': 'AW-17463356469/0ajNCILjs5MbELXYlodB',
         'value': 1.0,
         'currency': 'SAR',
         'event_callback': callback
@@ -285,13 +271,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return false;
     }
 
-    // إطلاق التحويل + إرسال حدث للداتا لاير + فتح واتساب عبر callback
+    // إطلاق التحويل + فتح واتساب عبر callback
     function openWhatsApp(url, source){
-      try {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
-      } catch(e){}
-      return gtag_report_conversion(url); // الدالة أعلاه تتكفل بالتحويل ثم الانتقال
+      try { window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' }); } catch(e){}
+      return gtag_report_conversion(url);
     }
 
     // روابط سريعة
@@ -347,5 +330,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 </body>
 </html>
-
-
