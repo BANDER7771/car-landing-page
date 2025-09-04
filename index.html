@@ -17,7 +17,7 @@
   <!-- جهّز dataLayer قبل أي وسوم -->
   <script>window.dataLayer = window.dataLayer || [];</script>
 
-  <!-- Google Tag Manager (موجود عندك – اتركه كما هو، ولا تُضِف نفس التحويل داخله كي لا يتكرر) -->
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -25,7 +25,7 @@
   })(window,document,'script','dataLayer','GTM-NQFXMX2S');</script>
   <!-- End Google Tag Manager -->
 
-  <!-- Google tag (gtag.js) – يجمع GA4 + Google Ads -->
+  <!-- Google tag (gtag.js) – GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3F15T116L0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -266,17 +266,32 @@
       return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(q)}`;
     }
 
-    // إطلاق تحويل Google Ads + فتح واتساب
+    /* ================================
+       Google Ads Event Snippet (نقر)
+       كما هو مطلوب من Google
+       ================================ */
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) !== 'undefined') {
+          window.location = url; // فتح الرابط بعد تسجيل التحويل
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17463356469/vRzwCCp7upEbELXYlodB', // استبدل فقط إذا غيّرت الـ Label من Google Ads
+        'value': 1.0,
+        'currency': 'SAR',
+        'event_callback': callback
+      });
+      return false;
+    }
+
+    // إطلاق التحويل + إرسال حدث للداتا لاير + فتح واتساب عبر callback
     function openWhatsApp(url, source){
       try {
-        /* Conversion: نقرة واتساب */
-        gtag('event','conversion',{'send_to':'AW-17463356469/vRzwCCp7upEbELXYlodB'});
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
       } catch(e){}
-      /* حدث عام للداتا لاير (لو حبيت تستخدم GTM لاحقًا) */
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'whatsapp_click', source: source || 'unknown' });
-
-      window.open(url, '_blank', 'noopener');
+      return gtag_report_conversion(url); // الدالة أعلاه تتكفل بالتحويل ثم الانتقال
     }
 
     // روابط سريعة
@@ -332,4 +347,3 @@
   </script>
 </body>
 </html>
-
